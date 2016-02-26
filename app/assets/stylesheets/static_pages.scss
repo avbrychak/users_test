@@ -1,0 +1,224 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto;
+  font-size: 14px;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.container {
+  @include clearfix;
+  width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 992px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    width: 768px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+
+nav {
+  line-height: 55px;
+  height: 55px;
+  background: #bbb;
+  padding: 0 15px;
+  border-bottom: 1px solid #8f8f8f;
+  text-transform: uppercase;
+}
+
+section {
+  position: relative;
+  padding: 45px 0;
+  overflow-x: hidden;
+  .btn-sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 5px 15px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    font-size: 14px;
+    border: 1px solid #000;
+    border-bottom:none;
+    background: #696969;
+    cursor: pointer;
+  }
+  .sidebar {
+    width: 30%;
+    float: left;
+    padding: 0 15px;
+    ul {
+      border: 1px solid #8f8f8f;
+      padding: 15px;
+      width: 100%;
+      border-radius: 10px;
+      background: #dbdbdb;
+      li {
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-bottom: 1px solid #b4b4b4;
+      }
+      li:last-child {
+        border-bottom: none;
+      }
+      a {
+        color: #646464;
+        text-decoration: none;
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+  }
+  .content {
+    position: relative;
+    width: 70%;
+    float: left;
+    padding: 0 15px;
+    transition: .6s;
+    .main-content {
+      padding: 15px;
+      border: 1px solid #8f8f8f;
+      border-radius: 10px;
+      background: #dbdbdb;
+      h1 {
+        font-weight: 600;
+        font-size: 32px;
+        color: #3b3b3b;
+        padding-bottom: 30px;
+      }
+      li {
+        padding: 8px 0;
+        border-bottom: 1px solid #b4b4b4;
+      }
+      li:last-child {
+        border-bottom: none;
+      }
+      p {
+        padding-bottom: 25px;
+        font-size: 18px;
+        line-height: 22px;
+        font-size: 13px;
+      }
+      a {
+        color: #b5b5b5;
+        transition: .3s;
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  }
+}
+
+.showSidebar {
+  .content {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  section {
+    .sidebar {
+      width: 40%;
+    }
+    .content {
+      width: 60%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    .sidebar {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 100px;
+      overflow: auto;
+      z-index: -2;
+    }
+    .content {
+      width: 100%;
+      background: #fff;
+    }
+  }
+  .showSidebar {
+    .content {
+      margin-left: 100%;
+    }
+  }
+}
