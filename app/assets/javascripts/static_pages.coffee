@@ -6,6 +6,10 @@ $(document).ready ->
     $('#sidebar').css({'z-index':'1000'})
     return
 
+  hideSidebar = ->
+    $('body').toggleClass 'showSidebar'
+    $('#sidebar').css({'z-index':'-2'})
+
   clickLink = (type) ->
     $.ajax
       url: '/users',
@@ -29,47 +33,53 @@ $(document).ready ->
     users.forEach (u) ->
       $('#users-list').append("<li>" + u.email + "</li>")
 
-  $('#home-page').click ->
+  $('#home-page').click (e) ->
     $('#users-content')[0].style.display = 'none'
     $('#home-content')[0].style.display = ''
+    hideSidebar()
+    e.preventDefault()
 
-  $('#admin-users').click ->
+  $('#admin-users').click (e) ->
     $('#home-content')[0].style.display = 'none'
     $('#users-content')[0].style.display = ''
     editUserTitle('Admin')
     response = clickLink('admin')
     users = response.responseText
     buildUserTable(users)
-    $('body').toggleClass 'showSidebar'
+    hideSidebar()
+    e.preventDefault()
     return
 
-  $('#inactive-users').click ->
+  $('#inactive-users').click (e) ->
     $('#home-content')[0].style.display = 'none'
     $('#users-content')[0].style.display = ''
     editUserTitle('Inactive')
     response = clickLink('all')
     users = response.responseText
     buildUserTable(users)
-    $('body').toggleClass 'showSidebar'
+    hideSidebar()
+    e.preventDefault()
     return
 
-  $('#all-users').click ->
+  $('#all-users').click (e) ->
     $('#home-content')[0].style.display = 'none'
     $('#users-content')[0].style.display = ''
     editUserTitle('All')
     response = clickLink('all')
     users = response.responseText
     buildUserTable(users)
-    $('body').toggleClass 'showSidebar'
+    hideSidebar()
+    e.preventDefault()
     return
 
-  $('#sample-users').click ->
+  $('#sample-users').click (e) ->
     $('#home-content')[0].style.display = 'none'
     $('#users-content')[0].style.display = ''
     editUserTitle('Sample')
     response = clickLink('sample')
     users = response.responseText
     buildUserTable(users)
-    $('body').toggleClass 'showSidebar'
+    hideSidebar()
+    e.preventDefault()
     return
 
