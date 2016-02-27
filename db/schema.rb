@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 20160226123528) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.string   "role"
-    t.boolean  "active"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "role",          default: "user"
+    t.boolean  "active",        default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
 end
