@@ -3,6 +3,7 @@ $(document).ready ->
 
   $('.btn-sidebar').click ->
     $('body').toggleClass 'showSidebar'
+    $('#sidebar').css({'z-index':'1000'})
     return
 
   clickLink = (type) ->
