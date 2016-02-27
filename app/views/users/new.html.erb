@@ -1,5 +1,4 @@
-<h1>Sign Up</h1>
-<%= form_for @user do |f| %>
+<div class="login-page">
   <% if @user.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
@@ -10,17 +9,13 @@
       </ul>
     </div>
   <% end %>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p class="button"><%= f.submit %></p>
-<% end %>
+  <div class="form">
+    <%= form_for @user, class: "register-form" do |f| %>
+      <%= f.text_field :email, placeholder: 'Email' %>
+      <%= f.password_field(:password, placeholder: "Password") %>
+      <%= f.password_field(:password_confirmation, placeholder: "Password confirmation") %>
+      <%= f.submit "Log in", class: "form-button" %>
+      <p class="message">Already registered? <%= link_to "Log in", log_in_path %></p>
+    <% end %>
+  </div>
+</div>
