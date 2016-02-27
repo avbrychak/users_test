@@ -40,6 +40,7 @@ $(document).ready ->
     response = clickLink('admin')
     users = response.responseText
     buildUserTable(users)
+    $('body').toggleClass 'showSidebar'
     return
 
   $('#inactive-users').click ->
@@ -49,6 +50,7 @@ $(document).ready ->
     response = clickLink('all')
     users = response.responseText
     buildUserTable(users)
+    $('body').toggleClass 'showSidebar'
     return
 
   $('#all-users').click ->
@@ -58,6 +60,7 @@ $(document).ready ->
     response = clickLink('all')
     users = response.responseText
     buildUserTable(users)
+    $('body').toggleClass 'showSidebar'
     return
 
   $('#sample-users').click ->
@@ -67,5 +70,6 @@ $(document).ready ->
     response = clickLink('sample')
     users = response.responseText
     buildUserTable(users)
+    $('body').toggleClass 'showSidebar'
     return
 
